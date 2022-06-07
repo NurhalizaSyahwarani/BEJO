@@ -56,6 +56,79 @@ int main (){
         for(int b = 0; b < 5; b++){
             for(int c = 0; c < 5; c++){
     
-          
+                Cux[counter] = rB_Cux + (a*  );
+                Cuy[counter] = rB_Cuy + (b*  );
+                Cuz[counter] = rB_Cuz + (c*  );
+                
+                Sx[counter] = rB_Sx + (a*  );
+                Sy[counter] = rB_Sy + (b*  );
+                Sz[counter] = rB_Sz + (c*  );
+
+                O1x[counter] = Sx[counter] + rB_O1x;
+                O1y[counter] = Sy[counter] + rB_O1y;
+                O1z[counter] = Sz[counter] + rB_O1z;
+
+                O2x[counter] = Sx[counter] + rB_O2x;
+                O2y[counter] = Sy[counter] + rB_O2y;
+                O2z[counter] = Sz[counter] + rB_O2z;
+
+                O3x[counter] = Sx[counter] + rB_O3x;
+                O3y[counter] = Sy[counter] + rB_O3y;
+                O3z[counter] = Sz[counter] + rB_O3z;
+
+                O4x[counter] = Sx[counter] + rB_O4x;
+                O4y[counter] = Sy[counter] + rB_O4y;
+                O4z[counter] = Sz[counter] + rB_O4z;
+
+                counter += 2;
+            }
+        }
+    }
+
+    // hasil iterasi dimasukkan ke dalam file xyz
+    ofstream file;
+    file.open("tembaga(II) sulfat.xyz");
+    int F = 125 * 5;
+    file << F << "\f" << endl;
+
+    // iterasi dalam output array
+    for(int g = 0; g < 125; g++){
+        file << setw(5) << "Cu" << setw(5) << " " \
+             << fixed << setprecision(5) << Cux[g] << setw(5) << " " \
+             << fixed << setprecision(5) << Cuy[g] << setw(5) << " " \
+             << fixed << setprecision(5) << Cuz[g] << "\f";
+        
+         file << setw(5) << "S" << setw(5) << " " \
+             << fixed << setprecision(5) << Sx[g] << setw(5) << " " \
+             << fixed << setprecision(5) << Sy[g] << setw(5) << " " \
+             << fixed << setprecision(5) << Sz[g] << "\f";
+
+        file << setw(5) << "O" << setw(5) << " " \
+             << fixed << setprecision(5) << O1x[g] << setw(5) << " " \
+             << fixed << setprecision(5) << O1y[g] << setw(5) << " " \
+             << fixed << setprecision(5) << O1z[g] << "\f";
+
+        file << setw(5) << "O" << setw(5) << " " \
+             << fixed << setprecision(5) << O2x[g] << setw(5) << " " \
+             << fixed << setprecision(5) << O2y[g] << setw(5) << " " \
+             << fixed << setprecision(5) << O2z[g] << "\f";
+
+        file << setw(5) << "O" << setw(5) << " " \
+             << fixed << setprecision(5) << O3x[g] << setw(5) << " " \
+             << fixed << setprecision(5) << O3y[g] << setw(5) << " " \
+             << fixed << setprecision(5) << O3z[g] << "\f";
+
+        file << setw(5) << "O" << setw(5) << " " \
+             << fixed << setprecision(5) << O4x[g] << setw(5) << " " \
+             << fixed << setprecision(5) << O4y[g] << setw(5) << " " \
+             << fixed << setprecision(5) << O4z[g] << "\f";
+    }
+
+    file.close();
+
+    cout << "program telah selesai";
+
+    return 0;
+}
           
     
