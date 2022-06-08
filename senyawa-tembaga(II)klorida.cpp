@@ -1,3 +1,4 @@
+%%writefile molekul-tembaga.cpp
 
 #include "iostream"
 #include "cmath"
@@ -24,9 +25,9 @@ int main (){
     float rB_Cuy = 0.0;
     float rB_Cuz = 0.0;
 
-    float rB_Cl1x = sin((180.0/2.0)*pi/180.0) * 1.090;
+    float rB_Cl1x = sin((180.0/2.0)*pi/180.0) * 180.0;
     float rB_Cl1y = 0.0;
-    float rB_Cl1z = cos((180.0/2.0)*pi/180.0) * 1.090;
+    float rB_Cl1z = cos((180.0/2.0)*pi/180.0) * 180.0;
 
     float rB_Clx = - rB_Cl1x;
     float rB_Cly = rB_Cl1y;
