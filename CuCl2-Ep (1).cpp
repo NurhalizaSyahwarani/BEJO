@@ -27,3 +27,91 @@ float Ep, Ep_LJ, A12, B6;
 float rij6, rij12;
 float dx, dy, dz;
 
+int main(){
+    
+    rcut = 3 * sigma;
+    rcut2 = pow(rcut,2);
+    
+    cout << "program menghitung energi potensial dari tembaga" << endl;
+    cout << "Masukkan nilai densitas dari tembaga (eg. 1.0): ";
+    cin >> densitas;
+
+    numb_mol = densitas * (Na / Mr_tembaga) * cm3_to_A3;
+    cout << "Masukkan panjang sel simulasi (eg. 5): ";
+    cin >> numb_lat;
+    N = (pow(numb_lat,3)) * 3;
+    volum = (float)N / numb_mol;
+
+    // panjang sel simulasi secara perhitungan
+    lx = pow(volum,(1.0/3.0));
+    ly = lx;
+    lz = lx;
+    if(lx < (2*rcut)){
+        cout << "sorry mazeh, sel simulasi kamu besar";
+        exit(0);
+    } else{
+        cout << "panjang sek simulasi baru: " << lx << endl;
+    }
+    lat = lx / (float)numb_lat;
+
+    // deklarasi variabel
+    float pi = 3.14;
+    
+    // deklarasi senyawa tembaga
+    float Cux[125], Cuy[125], Cuz[125];
+    float Cl1x[125], Cl1y[125], Cl1z[125];
+    float Cl2x[125], Cl2y[125], Cl2z[125];
+
+    /* Cl-Cu-Cl
+      senyawa tembaga itu bentuk rigid
+    */
+
+    float rB_Cux = 0.0;
+    float rB_Cuy = 0.0;
+    float rB_Cuz = 0.0;
+
+    float rB_Cl1x = sin((180.0/2.0)*pi/180.0) * 180.0;
+    float rB_Cl1y = 0.0;
+    float rB_Cl1z = cos((180.0/2.0)*pi/180.0) * 180.0;
+
+    float rB_Cl2x = - rB_Cl1x;
+    float rB_Cl2y = rB_Cl1y;
+    float rB_Cl2z = rB_Cl1z;
+
+    // iterasi untuk setiap senyawa tembaga
+    for(int i = 0; i < 5; i++){
+        for(int j = 0; j < 5; j++){
+            for(int k = 0; k < 5; k++){
+                
+                Cux[counter] = rB_Cux + (i*3.01);
+                Cuy[counter] = rB_Cuy + (j*3.01);
+                Cuz[counter] = rB_Cuz + (k*3.01);
+
+                Cl1x[counter] = Cux[counter] + rB_Cl1x;
+                Cl1y[counter] = Cuy[counter] + rB_Cl1y;
+                Cl1z[counter] = Cuz[counter] + rB_Cl1z;
+
+                Cl2x[counter] = Cux[counter] + rB_Cl2x;
+                Cl2y[counter] = Cuy[counter] + rB_Cl2y;
+                Cl2z[counter] = Cuz[counter] + rB_Cl2z;
+
+                counter += 1;
+            }
+        }
+    }
+
+    // main hitung energi potensial
+    A12 = 4.0 * epsilon * pow(sigma,12);
+    B6 = 4.0 * epsilon * pow(sigma, 6);
+
+    Ep = 0.0;
+    for(int a = 0; a < (N-1); a++){
+        for(int b = (0+1); b < N; b++){
+            
+            dx = Cux[a] - Cux[b];
+            dy = Cuy[a] - Cuy[b];
+            dz = Cuz[a] - Cuz[b];
+
+            dx = dx - round(dx/lx) * lx;
+            dy = dy - round(dy/ly) * ly;
+            dz = dz - round(dz/lz) * lz;
