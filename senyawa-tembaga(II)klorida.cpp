@@ -1,3 +1,7 @@
+
+                            (SENYAWA TEMBAGA RUAH)  FILE 2
+
+
 %%writefile senyawa-tembaga.cpp
 
 #include "iostream"
