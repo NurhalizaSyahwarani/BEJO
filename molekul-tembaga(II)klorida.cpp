@@ -1,3 +1,4 @@
+%%writefile molekul-tembaga.cpp
 
 #include "iostream"
 #include "cmath"
@@ -18,9 +19,9 @@ int main(){
     // masukkan nilai untuk setiap variabel CuCl2
     Cux = Cuy = Cuz = 0.0;
 
-    Cl1x = sin(90*pi/180) * 180;
+    Cl1x = sin(90.0*pi/180) * 180.0;
     Cl1y = 0.0;
-    Cl1z = cos(90*pi/180) * 180;
+    Cl1z = cos(90.0*pi/180) * 180.0;
 
     Cl2x = - Cl1x;
     Cl2y = Cl1y;
@@ -51,3 +52,12 @@ int main(){
 
     return 0;
 }
+
+
+
+
+
+%%shell
+
+g++ molekul-tembaga.cpp -o tembaga
+./tembaga
