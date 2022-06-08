@@ -85,3 +85,13 @@ int main (){
 
     return 0;
 }
+
+
+
+
+
+
+%%shell
+
+g++ senyawa-tembaga.cpp -o senyawa-tembaga
+./senyawa-tembaga
