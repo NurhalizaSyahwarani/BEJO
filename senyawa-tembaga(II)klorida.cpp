@@ -1,4 +1,4 @@
-%%writefile molekul-tembaga.cpp
+%%writefile senyawa-tembaga.cpp
 
 #include "iostream"
 #include "cmath"
@@ -29,9 +29,9 @@ int main (){
     float rB_Cl1y = 0.0;
     float rB_Cl1z = cos((180.0/2.0)*pi/180.0) * 180.0;
 
-    float rB_Clx = - rB_Cl1x;
-    float rB_Cly = rB_Cl1y;
-    float rB_Clz = rB_Cl1z;
+    float rB_Cl2x = - rB_Cl1x;
+    float rB_Cl2y = rB_Cl1y;
+    float rB_Cl2z = rB_Cl1z;
 
     // iterasi untuk setiap senyawa tembaga
     for(int i = 0; i < 5; i++){
