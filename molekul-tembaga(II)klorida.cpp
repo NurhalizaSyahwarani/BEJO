@@ -1,3 +1,7 @@
+                                        MOLEKUL TEMBAGA(II) KLORIDA (FILE KE 1)
+                                            
+                                            
+
 %%writefile molekul-tembaga.cpp
 
 #include "iostream"
