@@ -98,4 +98,4 @@ int main (){
 %%shell
 
 g++ senyawa-tembaga.cpp -o senyawa-tembaga
-./senyawa-tembaga
+./senyawa-tembaga.
