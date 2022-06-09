@@ -37,20 +37,20 @@ int main(){
     cin >> densitas;
 
     numb_mol = densitas * (Na / Mr_tembaga) * cm3_to_A3;
-    cout << "Masukkan panjang sel simulasi (eg. 5): ";
+    cout <<  (eg. 5): ";
     cin >> numb_lat;
     N = (pow(numb_lat,3)) * 3;
     volum = (float)N / numb_mol;
 
-    // panjang sel simulasi secara perhitungan
+    // 
     lx = pow(volum,(1.0/3.0));
     ly = lx;
     lz = lx;
     if(lx < (2*rcut)){
-        cout << "sorry mazeh, sel simulasi kamu besar";
+        cout << ";
         exit(0);
     } else{
-        cout << "panjang sek simulasi baru: " << lx << endl;
+        cout << ": " << lx << endl;
     }
     lat = lx / (float)numb_lat;
 
@@ -100,7 +100,7 @@ int main(){
         }
     }
 
-    // main hitung energi potensial
+    //
     A12 = 4.0 * epsilon * pow(sigma,12);
     B6 = 4.0 * epsilon * pow(sigma, 6);
 
@@ -115,3 +115,47 @@ int main(){
             dx = dx - round(dx/lx) * lx;
             dy = dy - round(dy/ly) * ly;
             dz = dz - round(dz/lz) * lz;
+rij = pow(dx,2) + pow(dy,2) + pow(dz,2);
+            if(rij < rcut2){
+                rij6 = pow(rij,3);
+                rij12 = pow(rij6,2);
+                Ep = (A12/rij12) - (B6/rij6);
+                Ep_LJ = (A12/rij12) - (B6/rij6);
+                Ep += Ep_LJ;
+            }
+        }
+    }
+
+    cout << ": " \
+         << Ep/(float)N << "kJ/mol";
+
+    // 
+    ofstream file;
+    file.open("_ep.xyz");
+    file << N << "\n" << endl;
+
+    int Nw = N/5;
+
+    // iterasi dalam output array
+    for(int m = 0; m < Nw; m++){
+     file << setw(3) << "Cu" << setw(3) << " " \
+             << fixed << setprecision(3) << Cux[m] << setw(3) << " " \
+             << fixed << setprecision(3) << Cuy[m] << setw(3) << " " \
+             << fixed << setprecision(3) << Cuz[m] << "\n";
+
+        file << setw(3) << "Cl" << setw(3) << " " \
+             << fixed << setprecision(3) << Cl1x[m] << setw(3) << " " \
+             << fixed << setprecision(3) << Cl1y[m] << setw(3) << " " \
+             << fixed << setprecision(3) << Cl1z[m] << "\n";
+
+        file << setw(3) << "Cl" << setw(3) << " " \
+             << fixed << setprecision(3) << Cl2x[m] << setw(3) << " " \
+             << fixed << setprecision(3) << Cl2y[m] << setw(3) << " " \
+             << fixed << setprecision(3) << Cl2z[m] << "\n";
+    }
+
+
+    file.close();
+
+    return 0;
+}
