@@ -23,9 +23,9 @@ int main(){
     // masukkan nilai untuk setiap variabel CuCl2
     Cux = Cuy = Cuz = 0.0;
 
-    Cl1x = sin(90.0*pi/180) * 180.0;
+    Cl1x = sin(54.75*pi/180) * 109.5;
     Cl1y = 0.0;
-    Cl1z = cos(90.0*pi/180) * 180.0;
+    Cl1z = cos(54.75*pi/180) * 109.5;
 
     Cl2x = - Cl1x;
     Cl2y = Cl1y;
