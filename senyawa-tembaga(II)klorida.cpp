@@ -21,7 +21,9 @@ int main (){
     float Cl1x[125], Cl1y[125], Cl1z[125];
     float Cl2x[125], Cl2y[125], Cl2z[125];
 
-    /* Cl-Cu-Cl
+    /*     Cu
+         /    \
+       Cl      Cl
       senyawa tembaga itu bentuk rigid
     */
 
@@ -29,9 +31,9 @@ int main (){
     float rB_Cuy = 0.0;
     float rB_Cuz = 0.0;
 
-    float rB_Cl1x = sin((180.0/2.0)*pi/180.0) * 180.0;
+    float rB_Cl1x = sin((109.5/2.0)*pi/180.0) * 109.5;
     float rB_Cl1y = 0.0;
-    float rB_Cl1z = cos((180.0/2.0)*pi/180.0) * 180.0;
+    float rB_Cl1z = cos((109.5/2.0)*pi/180.0) * 109.5;
 
     float rB_Cl2x = - rB_Cl1x;
     float rB_Cl2y = rB_Cl1y;
