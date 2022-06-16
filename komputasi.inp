@@ -551,3 +551,7 @@ chemcompute-node-0.novalocal
 atau secara 
 otomatis laman https://chemcompute.org/gamess/submit
 DIPEROLEH STRUKTUR MOLEKUL CuCl2
+
+Output perhitungan komputasi akan secara otomatis ditampilkan pada 
+https://chemcompute.org/gamess/status/. Secara manual, file output juga dapat 
+didownload dan dibuka menggunakan Notepad++ atau Avogadro
